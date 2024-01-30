@@ -3,7 +3,10 @@ import "./styles.css";
 import Logo from "../../components/Logo";
 import RegistrationForm from "./RegistrationForm";
 
-const Register = () => {
+import LoginForm from "./LoginForm";
+
+const Auth = (props) => {
+  const {type="register"}= props
   return (
     <div className="container">
       <div className="register-img">
@@ -11,10 +14,11 @@ const Register = () => {
       </div>
       <div className="register-form">
         <Logo name={"Super App"} className="register-logo" />
-        <RegistrationForm />
+        {type==="register" ?  <RegistrationForm />:<LoginForm />}
+       
       </div>
     </div>
   );
 };
 
-export default Register;
+export default Auth;

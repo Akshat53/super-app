@@ -1,8 +1,9 @@
 import React from "react";
+import "./styles.css";
 
 const Logo = (props) => {
-  const { name, className } = props;
-  return <h2 className={className}>{name}</h2>;
+  const { className } = props;
+  return <h2 className={`${className} logo`}>Super App</h2>;
 };
 
 export default Logo;

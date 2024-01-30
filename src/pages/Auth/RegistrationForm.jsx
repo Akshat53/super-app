@@ -10,6 +10,7 @@ const RegistrationForm = () => {
     userName: "",
     email: "",
     mobile: "",
+    password:"",
     sharedData: false,
   });
 
@@ -18,6 +19,7 @@ const RegistrationForm = () => {
     userName: null,
     email: null,
     mobile: null,
+    password:null,
     sharedData: null,
   });
 
@@ -30,7 +32,7 @@ const RegistrationForm = () => {
       };
     });
   };
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     let isError = false;
@@ -74,6 +76,16 @@ const RegistrationForm = () => {
         return { ...prev, userName: null };
       });
     }
+    if (formData.password.trim().length == 0) {
+      setError((prev) => {
+        return { ...prev, password: "Enter password" };
+      });
+      isError = true;
+    } else {
+      setError((prev) => {
+        return { ...prev, password: null };
+      });
+    }
     if (formData.sharedData === false) {
       setError((prev) => {
         return { ...prev, sharedData: "Please Check The Box" };
@@ -88,7 +100,7 @@ const RegistrationForm = () => {
       return;
     } else {
       window.localStorage.setItem("userInfo", JSON.stringify(formData));
-      navigate("/info")
+      navigate("/login");
     }
   };
 
@@ -131,6 +143,15 @@ const RegistrationForm = () => {
         className={error.mobile ? "error" : ""}
       />
       {error.mobile}
+      <Input
+        type="password"
+        placeholder={"Password"}
+        name="password"
+        value={formData.password}
+        onChange={handleChange}
+        className={error.mobile ? "error" : ""}
+      />
+      {error.password}
       <label htmlFor="check">
         <Input
           type="checkbox"

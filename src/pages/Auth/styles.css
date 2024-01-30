@@ -3,12 +3,12 @@
 
 body {
   margin: 0;
-  overflow: hidden;
 }
 
 * {
   background-color: black;
   font-family: "Roboto", sans-serif;
+  color: white;
 }
 
 .container {
@@ -46,12 +46,7 @@ body {
   flex-direction: column;
 }
 
-.register-logo {
-  font-family: "Single Day", cursive;
-  color: #72db73;
-  font-size: 67px;
-  margin: 0;
-}
+
 
 .register-form input {
   background-color: #292929;
@@ -89,7 +84,7 @@ body {
   color: red;
   font-size: 15px;
 }
-.register-form span{
+.register-form span {
   color: white;
   font-weight: bold;
   text-align: center;
@@ -102,7 +97,7 @@ body {
   font-size: small;
   font-family: sans-serif;
 }
-.error{
+.error {
   border: 1px solid red !important;
 }
 
