@@ -28,7 +28,7 @@ const LoginForm = () => {
       password: null,
     });
 
-    if (formData.email === "" | formData.password === "") {
+    if ((formData.email === "") | (formData.password === "")) {
       setErrors((prev) => ({
         ...prev,
         email: "Email or User Name is required",
@@ -36,8 +36,6 @@ const LoginForm = () => {
       }));
       return;
     }
-
-   
 
     const storedData = JSON.parse(localStorage.getItem("userInfo"));
 
@@ -72,7 +70,7 @@ const LoginForm = () => {
         name="email"
         value={formData.email}
         onChange={handleChange}
-        className={errors.email?"error":""}
+        className={errors.email ? "error" : ""}
       />
       {errors.email}
       <Input
@@ -81,7 +79,7 @@ const LoginForm = () => {
         name="password"
         value={formData.password}
         onChange={handleChange}
-        className={errors.password?"error":""}
+        className={errors.password ? "error" : ""}
       />
       {errors.password}
       <Button label="Login" className="register-btn" type="submit" />

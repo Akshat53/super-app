@@ -1,0 +1,50 @@
+.user-details {
+  background-color: #5746ea;
+  color: white;
+  display: flex;
+  border-radius: 20px;
+  padding: 20px;
+ 
+}
+.user-img,
+.user-img img {
+  background: transparent;
+  width: 80%;
+}
+.showcase {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+.user-info p,
+h2,
+h1,
+h3 {
+  background: transparent;
+  margin: 2px;
+}
+.bg-t {
+  background: transparent;
+}
+.email {
+  font-size: 40px !important;
+}
+.user-info {
+  display: flex;
+  flex-direction: column;
+    margin-top: 20px;
+  padding: 10px;
+  
+}
+.user-info p {
+  font-size: 25px;
+}
+
+.cat-tag {
+  display: flex;
+  gap: 20px;
+  margin-top: 50px;
+}
+.showcase{
+
+}

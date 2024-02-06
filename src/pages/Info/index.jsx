@@ -13,7 +13,7 @@ import music from "../../assets/categories/music.png";
 import fiction from "../../assets/categories/fiction.png";
 import Chip from "../../components/Chip";
 import error from "../../assets/error.svg";
-import Button from "../../components/Button"
+import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 
 const categoryOptions = [
@@ -67,55 +67,58 @@ const categoryOptions = [
 const index = () => {
   const [selectMovie, setSelectMovie] = useState([]);
   console.log(selectMovie);
-  const navigate = useNavigate()
-  const handleNextBtn =() =>{
-    navigate("/showcase")
-setSelectMovie((localStorage.setItem("category", JSON.stringify(selectMovie))))
-
-  }
-
+  const navigate = useNavigate();
+  const handleNextBtn = () => {
+    navigate("/showcase");
+    setSelectMovie(
+      localStorage.setItem("category", JSON.stringify(selectMovie))
+    );
+  };
 
   return (
     <div className="main">
-    <div className="info-container">
-      <div className="info-left-box">
-        <Logo className="info-logo" />
-        <h1>Choose your entertainment category</h1>
-        <div className="info-chip">
-          {selectMovie.map((movie) => (
-            <Chip
-              key={movie}
-              data={movie}
-              selectMovie={selectMovie}
+      <div className="info-container">
+        <div className="info-left-box">
+          <Logo className="info-logo" />
+          <h1>Choose your entertainment category</h1>
+          <div className="info-chip">
+            {selectMovie.map((movie) => (
+              <Chip
+                key={movie}
+                data={movie}
+                selectMovie={selectMovie}
+                setSelectMovie={setSelectMovie}
+              />
+            ))}
+          </div>
+          {selectMovie.length >= 3 ? (
+            ""
+          ) : (
+            <p>
+              <img src={error} />
+              minimun 3 categories required
+            </p>
+          )}
+        </div>
+        <div className="info-right-box">
+          {categoryOptions.map((genre) => (
+            <Box
+              key={genre.id}
+              data={genre}
               setSelectMovie={setSelectMovie}
+              selectMovie={selectMovie}
             />
           ))}
         </div>
-        {selectMovie.length >= 3 ? (
-          ""
-        ) : (
-          <p>
-            <img src={error} />
-            minimun 3 categories required
-          </p>
-        )}
       </div>
-      <div className="info-right-box">
-        {categoryOptions.map((genre) => (
-          <Box
-            key={genre.id}
-            data={genre}
-            setSelectMovie={setSelectMovie}
-            selectMovie={selectMovie}
-          />
-        ))}
-
+      <div className="info-btn">
+        <Button
+          label="Next"
+          className="info-next-button"
+          disabled={selectMovie.length < 3}
+          onClick={handleNextBtn}
+        />
       </div>
-      
-    </div>
-    <div className="info-btn">
-    <Button label="Next" className="info-next-button" disabled={selectMovie.length<3 } onClick={handleNextBtn}/>
-    </div>
     </div>
   );
 };

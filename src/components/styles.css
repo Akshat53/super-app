@@ -16,11 +16,19 @@
   text-align: center;
 }
 
-@media screen and (max-width : 900px) {
+@media screen and (max-width: 900px) {
   /* .box{
     width: 100%;
   } */
-  .box h1{
+  .box h1 {
     font-size: 20px;
   }
+}
+.tag {
+  background-color: #9f94ff;
+  color: white;
+  padding: 15px;
+  border-radius: 20px;
+
+
 }
